@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Activity Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+
+    <h1>Brain Activity Tracker</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".jpg,.jpeg,.png,.tiff,.pdf,.mri" required>
+        <button type="submit" class="upload-btn">Upload EEG/MRI Scan</button>
+    </form>
+
+    <hr>
+
+    <h2>Brain Activity Visualization</h2>
+    {% if filename %}
+    <p>File Uploaded: {{ filename }}</p>
+    <iframe src="/dash/" width="100%" height="500px"></iframe>
+    {% else %}
+    <p>No file uploaded yet. Please upload your EEG/MRI scan.</p>
+    {% endif %}
+
+    <script src="https://cdn.jsdelivr.net/npm/@dash/dash-html-components"></script>
+</body>
+</html>
