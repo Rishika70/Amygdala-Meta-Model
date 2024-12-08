@@ -1,6 +1,4 @@
 flask
 dash
-from dash import dcc
-from dash import html
 plotly
 werkzeug
